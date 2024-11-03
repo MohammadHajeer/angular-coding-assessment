@@ -1,3 +1,48 @@
-<p>login-form works!</p>
-{{authService.isLoggedIn()}}
-<button (click)="authService.login()">LOGIN NOW</button>
+<div class="h-screen flex justify-center items-center">
+  <div #form class="w-[500px] p-10 shadow-xl rounded-xl">
+    <h1 #title class="text-5xl mb-5 text-primary uppercase flex">
+      @for(letter of "login"; track letter) {
+      <span>{{ letter }}</span>
+      }
+    </h1>
+    <form (submit)="handleLogin($event)" class="flex flex-col gap-3 bord">
+      <div class="flex flex-col gap-2">
+        <label for="email" class="text-gray-600">Email*</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="email"
+          required
+          class="rounded-xl p-4 border-gray-400 !ring-0 focus:border-transparent focus:outline-primary"
+        />
+      </div>
+      
+      <div class="flex flex-col gap-2">
+        <label for="password" class="text-gray-600">Password*</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          class="rounded-xl p-4 border-gray-400 !ring-0 focus:border-transparent focus:outline-primary"
+        />
+      </div>
+      <button
+        #button
+        type="submit"
+        class="bg-primary hover:bg-primary-alt transition-all text-white py-3 text-xl rounded-xl flex items-center justify-center"
+      >
+        @for(letter of "login"; track letter) {
+        <span class="first:capitalize">{{ letter }}</span>
+        }
+      </button>
+    </form>
+
+    <p class="text-sm mt-2 text-gray-500">
+      Dont have an account ?
+      <a routerLink="/signup" class="text-primary font-bold">Signup</a>
+    </p>
+  </div>
+</div>

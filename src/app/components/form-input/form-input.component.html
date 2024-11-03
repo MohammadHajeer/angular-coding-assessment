@@ -1,0 +1,10 @@
+<div class="flex flex-col gap-2">
+  <label [for]="id" class="text-gray-600">{{label}}*</label>
+  <input
+    [type]="type"
+    [id]="id"
+    [formControlName]="formControlName"
+    [placeholder]="placeholder"
+    class="rounded-xl p-4 border-gray-400 !ring-0 focus:border-transparent focus:outline-primary"
+  />
+</div>
