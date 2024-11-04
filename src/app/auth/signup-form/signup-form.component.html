@@ -1,52 +1,80 @@
-<div class="h-screen flex justify-center items-center">
-  <div #form class="w-[500px] p-10 shadow-xl rounded-xl">
-    <h1 #title class="text-5xl mb-5 text-primary uppercase flex">
+<div class="h-screen flex justify-center items-center min-h-[700px]">
+  <div
+    #form
+    class="w-[600px] p-10 max-sm:p-5 sm:shadow-xl rounded-xl overflow-y-auto"
+  >
+    <h1 #title class="text-5xl mb-10 text-primary uppercase flex">
       @for(letter of "signup"; track letter) {
       <span>{{ letter }}</span>
       }
     </h1>
-    <form [formGroup]="signupForm" (ngSubmit)="handleSignup()" class="flex flex-col gap-3 bord">
+    <form
+      [formGroup]="signupForm"
+      (ngSubmit)="handleSignup()"
+      class="flex flex-col gap-4"
+    >
       <div class="flex flex-col gap-2">
-        <label for="first-name" class="text-gray-600">First Name*</label>
+        <div class="flex items-center gap-2 justify-between">
+          <label for="first-name" class="text-gray-600">First Name*</label>
+          <print-form-input-error
+            class="text-red-500"
+            [control]="signupForm.get('firstName')"
+          ></print-form-input-error>
+        </div>
         <input
           type="text"
           id="first-name"
           formControlName="firstName"
           placeholder="John"
-          class="rounded-xl p-4 border-gray-400 !ring-0 focus:border-transparent focus:outline-primary"
+          class="rounded-xl p-4 border-gray-400 !ring-0 focus:border-transparent focus:outline-primary disabled:bg-secondary-alt disabled:border-secondary-alt disabled:text-gray-500 disabled:transition-all"
         />
       </div>
-    <div  class="text-red-500">
-      {{signupForm.get('firstName')?.errors?.['required'] ? "First Name is required" : ""}}
-    </div>
       <div class="flex flex-col gap-2">
-        <label for="last-name" class="text-gray-600">Last Name*</label>
+        <div class="flex items-center gap-2 justify-between">
+          <label for="last-name" class="text-gray-600">Last Name*</label>
+          <print-form-input-error
+            class="text-red-500"
+            [control]="signupForm.get('lastName')"
+          ></print-form-input-error>
+        </div>
         <input
           type="text"
           id="last-name"
           formControlName="lastName"
           placeholder="Doe"
-          class="rounded-xl p-4 border-gray-400 !ring-0 focus:border-transparent focus:outline-primary"
+          class="rounded-xl p-4 border-gray-400 !ring-0 focus:border-transparent focus:outline-primary disabled:bg-secondary-alt disabled:border-secondary-alt disabled:text-gray-500 disabled:transition-all"
         />
       </div>
       <div class="flex flex-col gap-2">
-        <label for="email" class="text-gray-600">Email*</label>
+        <div class="flex items-center gap-2 justify-between">
+          <label for="email" class="text-gray-600">Email*</label>
+          <print-form-input-error
+            class="text-red-500"
+            [control]="signupForm.get('email')"
+          ></print-form-input-error>
+        </div>
         <input
           type="email"
           id="email"
           formControlName="email"
           placeholder="example@example.com"
-          class="rounded-xl p-4 border-gray-400 !ring-0 focus:border-transparent focus:outline-primary"
+          class="rounded-xl p-4 border-gray-400 !ring-0 focus:border-transparent focus:outline-primary disabled:bg-secondary-alt disabled:border-secondary-alt disabled:text-gray-500 disabled:transition-all"
         />
       </div>
       <div class="flex flex-col gap-2">
-        <label for="password" class="text-gray-600">Password*</label>
+        <div class="flex items-center gap-2 justify-between">
+          <label for="password" class="text-gray-600">Password*</label>
+          <print-form-input-error
+            class="text-red-500"
+            [control]="signupForm.get('password')"
+          ></print-form-input-error>
+        </div>
         <input
           type="password"
           id="password"
           formControlName="password"
           placeholder="********"
-          class="rounded-xl p-4 border-gray-400 !ring-0 focus:border-transparent focus:outline-primary"
+          class="rounded-xl p-4 border-gray-400 !ring-0 focus:border-transparent focus:outline-primary disabled:bg-secondary-alt disabled:border-secondary-alt disabled:text-gray-500 disabled:transition-all"
         />
       </div>
       <button
