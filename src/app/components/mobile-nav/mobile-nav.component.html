@@ -1,0 +1,31 @@
+<nav
+  #navBar
+  class="absolute inset-0 bg-primary-alt p-2 z-[1000] flex flex-col overflow-y-auto"
+>
+  <div class="flex justify-between items-center">
+    <img src="/logo.svg" alt="logo" class="size-40" />
+    <button (click)="closeNav()" class="p-2 rounded-lg bg-white mr-3">
+      <img src="/icons/x-icon.svg" alt="close-icon" class="size-8" />
+    </button>
+  </div>
+  <ul class="flex flex-col gap-2">
+    @for(link of links; track link) {
+    <li>
+      <a
+        (click)="closeNav()"
+        [routerLink]="link.path"
+        routerLinkActive="bg-primary"
+        class="px-4 h-12 flex items-center gap-2 text-lg rounded-lg text-white"
+      >
+        <img
+          [src]="isActive(link.path) ? link.outlineIcon : link.solidIcon"
+          alt="icon"
+          class="size-6"
+        />
+
+        <span class="">{{ link.name }}</span>
+      </a>
+    </li>
+    }
+  </ul>
+</nav>

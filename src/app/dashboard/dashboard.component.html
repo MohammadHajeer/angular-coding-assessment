@@ -1,7 +1,22 @@
-<nav>
-    <a routerLink="profile" routerLinkActive="text-blue-500">Profile</a>
-    <a routerLink="weather" routerLinkActive="text-blue-500">Weather</a>
-    <a routerLink="tasks" routerLinkActive="text-blue-500">Tasks</a>
-    <a routerLink="products" routerLinkActive="text-blue-500">Products</a>
-</nav>
-<router-outlet></router-outlet>
+<main class="flex">
+  <sidebar class="max-sm:hidden" />
+  @if(showMobileNav) {
+  <mobile-nav class="sm:hidden" (nav)="toggleNav(false)" />
+  }
+  <section class="p-8 flex flex-col w-full">
+    <div class="flex justify-between items-center">
+      <h1 #titleHeading class="text-4xl flex w-fit">
+        @for(letter of title().name; track letter) {
+        <span>{{ letter }}</span>
+        }
+      </h1>
+      <button (click)="toggleNav(true)" class="bg-primary p-2 rounded-lg sm:hidden">
+        <img src="/icons/menu-icon.svg" alt="icon" class="size-8" />
+      </button>
+    </div>
+    <p class="text-gray-500 text-sm mt-2">{{ title().description }}</p>
+    <div class="bg-secondary flex-1 rounded-xl p-5 mt-4">
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+</main>

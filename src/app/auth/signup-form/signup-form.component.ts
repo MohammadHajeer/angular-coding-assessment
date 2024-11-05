@@ -55,6 +55,7 @@ export class SignupFormComponent {
     }
 
     this.signupForm.disable();
+    this.button.nativeElement.disabled = true;
   }
 
   ngAfterViewInit() {

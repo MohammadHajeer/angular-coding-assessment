@@ -50,6 +50,7 @@ export class LoginFormComponent {
     }
 
     this.loginForm.disable();
+    this.button.nativeElement.disabled = true;
   }
 
   ngAfterViewInit() {

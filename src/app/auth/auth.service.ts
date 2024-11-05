@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  private isAuthenticated = signal(false);
+  private isAuthenticated = signal(true);
 
   constructor(private router: Router) {}
 

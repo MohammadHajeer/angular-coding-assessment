@@ -1,0 +1,27 @@
+<nav
+  class="h-screen bg-primary-alt p-2 sticky w-64 max-lg:w-[72px] flex flex-col overflow-y-auto"
+>
+  <div>
+    <img src="/logo.svg" alt="logo" class="size-40 mx-auto max-lg:hidden" />
+    <img src="/logo-mobile.svg" alt="logo" class="size-40 mx-auto lg:hidden" />
+  </div>
+  <ul class="flex flex-col gap-2">
+    @for(link of links; track link) {
+    <li>
+      <a
+        [routerLink]="link.path"
+        routerLinkActive="bg-primary"
+        class="px-4 h-12 flex items-center gap-2 text-lg rounded-lg text-white"
+      >
+        <img
+          [src]="isActive(link.path) ? link.outlineIcon : link.solidIcon"
+          alt="icon"
+          class="size-6"
+        />
+
+        <span class="max-lg:hidden">{{ link.name }}</span>
+      </a>
+    </li>
+    }
+  </ul>
+</nav>

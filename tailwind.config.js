@@ -13,6 +13,9 @@ module.exports = {
           alt: "#e5e7eb"
         },
       },
+      backgroundImage: {
+        'forms': "url('/forms-bg.svg')",
+      }
     },
   },
   plugins: [require("@tailwindcss/forms")],

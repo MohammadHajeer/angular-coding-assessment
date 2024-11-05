@@ -21,6 +21,14 @@ export class GsapAnimationsService {
     );
   }
 
+  showTitle(title: HTMLElement) {
+    gsap.fromTo(
+      title,
+      { opacity: 0, scale: 0.5 },
+      { opacity: 1, ease: 'back.out', scale: 1 }
+    );
+  }
+
   animateLoadingButton(button: HTMLElement) {
     if (gsap.isTweening(button)) {
       return;
