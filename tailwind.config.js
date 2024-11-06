@@ -15,6 +15,7 @@ module.exports = {
       },
       backgroundImage: {
         'forms': "url('/forms-bg.svg')",
+        'banner': "url('/banner.svg')",
       }
     },
   },

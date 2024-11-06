@@ -1,1 +1,16 @@
-<p>products works!</p>
+<div
+  class="relative h-full"
+  style="
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  "
+>
+  @defer() { @for(product of products; track product) {
+  <product-card [product]="product"></product-card>
+  } } @loading(minimum 1000) {
+  <loading />
+  } @placeholder(minimum 1000) { @for(item of [1,2,3,4,5]; track item) {
+  <div class="h-96 bg-gray-300 animate-pulse rounded-xl"></div>
+  } }
+</div>

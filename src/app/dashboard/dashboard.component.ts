@@ -17,6 +17,7 @@ import { SidebarComponent } from '../components/sidebar/sidebar.component';
 import { dashboardLinks } from '../constants';
 import { GsapAnimationsService } from '../services/gsap/gsap-animations.service';
 import { MobileNavComponent } from '../components/mobile-nav/mobile-nav.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,6 +28,7 @@ import { MobileNavComponent } from '../components/mobile-nav/mobile-nav.componen
     RouterLinkActive,
     SidebarComponent,
     MobileNavComponent,
+    CommonModule
   ],
   templateUrl: './dashboard.component.html',
 })

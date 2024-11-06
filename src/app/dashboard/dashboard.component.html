@@ -6,9 +6,9 @@
   <section class="p-8 flex flex-col w-full">
     <div class="flex justify-between items-center">
       <h1 #titleHeading class="text-4xl flex w-fit">
-        @for(letter of title().name; track letter) {
-        <span>{{ letter }}</span>
-        }
+        <ng-container *ngFor="let letter of title().name.split(''); let i = index">
+          <span [attr.data-index]="i">{{ letter }}</span>
+        </ng-container>
       </h1>
       <button (click)="toggleNav(true)" class="bg-primary p-2 rounded-lg sm:hidden">
         <img src="/icons/menu-icon.svg" alt="icon" class="size-8" />
