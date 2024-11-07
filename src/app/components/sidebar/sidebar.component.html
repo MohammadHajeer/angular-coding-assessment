@@ -24,4 +24,15 @@
     </li>
     }
   </ul>
+  <button
+    (click)="authService.logout()"
+    class="px-4 h-12 flex items-center gap-2 text-lg rounded-lg text-white mt-auto">
+    <img
+      src="/icons/logout-icon.svg"
+      alt="icon"
+      class="size-6"
+    />
+
+    <span class="max-lg:hidden">Logout</span>
+  </button>
 </nav>

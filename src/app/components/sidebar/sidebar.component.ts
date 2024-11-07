@@ -6,6 +6,7 @@ import {
   RouterLinkActive,
 } from '@angular/router';
 import { dashboardLinks } from '../../constants';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'sidebar',
@@ -17,6 +18,7 @@ export class SidebarComponent {
   links = dashboardLinks;
   router = inject(Router);
   activatedRoute = '/dashboard/profile';
+  authService = inject(AuthService);
 
   constructor() {
     this.router.events.subscribe((event) => {

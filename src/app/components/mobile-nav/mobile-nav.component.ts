@@ -16,6 +16,7 @@ import {
 import { dashboardLinks } from '../../constants';
 import { GsapAnimationsService } from '../../services/gsap/gsap-animations.service';
 import gsap from 'gsap';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'mobile-nav',
@@ -29,6 +30,7 @@ export class MobileNavComponent {
   activatedRoute = '/dashboard/profile';
   @Output() nav = new EventEmitter();
   gsapAnimations = inject(GsapAnimationsService);
+  authService = inject(AuthService);
   
   constructor(private cdr: ChangeDetectorRef) {
     this.router.events.subscribe((event) => {

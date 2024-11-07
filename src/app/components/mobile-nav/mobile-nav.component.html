@@ -2,11 +2,21 @@
   #navBar
   class="absolute inset-0 bg-primary-alt p-2 z-[1000] flex flex-col overflow-y-auto"
 >
-  <div class="flex justify-between items-center">
-    <img src="/logo.svg" alt="logo" class="size-40" />
-    <button (click)="closeNav()" class="p-2 rounded-lg bg-white mr-3">
+  <div class="flex justify-between gap-5 items-center">
+    <button
+    (click)="authService.logout()"
+      class="px-4 h-12 flex items-center gap-2 text-lg rounded-lg text-white"
+    >
+      <img src="/icons/logout-icon.svg" alt="icon" class="size-6" />
+
+      <span>Logout</span>
+    </button>
+    <button (click)="closeNav()" class="p-1 rounded-lg bg-white mr-3">
       <img src="/icons/x-icon.svg" alt="close-icon" class="size-8" />
     </button>
+  </div>
+  <div class="flex justify-between items-center mt-10">
+    <img src="/logo.svg" alt="logo" class="size-40" />
   </div>
   <ul class="flex flex-col gap-2">
     @for(link of links; track link) {

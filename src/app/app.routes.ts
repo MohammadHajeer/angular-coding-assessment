@@ -10,6 +10,8 @@ import {
   WeatherComponent,
 } from './dashboard';
 import { noAuthGuard } from './no-auth.guard';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { emailVerificationGuard } from './email-verification.guard';
 
 export const routes: Routes = [
   { path: 'login', component: LoginFormComponent, canActivate: [noAuthGuard] },
@@ -18,7 +20,11 @@ export const routes: Routes = [
     component: SignupFormComponent,
     canActivate: [noAuthGuard],
   },
-
+  {
+    path: 'verify-email',
+    component: VerifyEmailComponent,
+    canActivate: [emailVerificationGuard]
+  },
   {
     path: 'dashboard',
     component: DashboardComponent,

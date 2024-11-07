@@ -18,6 +18,7 @@ import { dashboardLinks } from '../constants';
 import { GsapAnimationsService } from '../services/gsap/gsap-animations.service';
 import { MobileNavComponent } from '../components/mobile-nav/mobile-nav.component';
 import { CommonModule } from '@angular/common';
+import { auth } from '../config/firebaseConfig';
 
 @Component({
   selector: 'app-dashboard',
@@ -55,6 +56,10 @@ export class DashboardComponent {
         }
       }
     });
+  }
+
+  testPurpose() {
+    console.log(auth.currentUser)
   }
 
   toggleNav(status: boolean) {

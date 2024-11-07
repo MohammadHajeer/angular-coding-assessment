@@ -6,3 +6,11 @@ export type Product = {
   image: string;
   rating: { rate: number; count: number };
 };
+
+export type User = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  token: string;
+  verified: boolean;
+}

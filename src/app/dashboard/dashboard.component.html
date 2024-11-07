@@ -4,6 +4,7 @@
   <mobile-nav class="sm:hidden" (nav)="toggleNav(false)" />
   }
   <section class="p-8 flex flex-col w-full">
+    <button (click)="testPurpose()">TEST</button>
     <div class="flex justify-between items-center">
       <h1 #titleHeading class="text-4xl flex w-fit">
         <ng-container *ngFor="let letter of title().name.split(''); let i = index">

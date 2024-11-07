@@ -1,5 +1,10 @@
-<div class="h-screen flex justify-center items-center min-h-[600px] bg-primary-alt">
-  <div #form class="w-[600px] p-10 max-sm:p-5 sm:shadow-xl rounded-xl overflow-y-auto bg-white">
+<div
+  class="h-screen flex justify-center items-center min-h-[600px] bg-primary-alt"
+>
+  <div
+    #form
+    class="w-[600px] p-10 max-sm:p-5 sm:shadow-xl rounded-xl overflow-y-auto bg-white relative"
+  >
     <h1 #title class="text-5xl mb-10 text-primary uppercase flex">
       @for(letter of "login"; track letter) {
       <span>{{ letter }}</span>
@@ -39,7 +44,7 @@
           id="password"
           formControlName="password"
           placeholder="********"
-          class="rounded-xl p-4 border-gray-400 !ring-0 focus:border-transparent focus:outline-primary  disabled:bg-secondary-alt disabled:border-secondary-alt disabled:text-gray-500 disabled:transition-all"
+          class="rounded-xl p-4 border-gray-400 !ring-0 focus:border-transparent focus:outline-primary disabled:bg-secondary-alt disabled:border-secondary-alt disabled:text-gray-500 disabled:transition-all"
         />
       </div>
       <button
@@ -57,5 +62,8 @@
       Dont have an account ?
       <a routerLink="/signup" class="text-primary font-bold">Signup</a>
     </p>
+    @if(errorMessage) {
+    <p class="text-sm text-red-500 absolute bottom-5">{{ errorMessage }}</p>
+    }
   </div>
 </div>

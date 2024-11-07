@@ -11,6 +11,11 @@ export const authGuard: CanActivateFn = (route, state) => {
     router.navigate(['/login']);
     return false;
   }
+
+  if(!authService.isEmailVerified()) {
+    router.navigate(['/verify-email']);
+    return false;
+  }
   
   return true;
 };
